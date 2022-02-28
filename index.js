@@ -4,6 +4,26 @@ const app = express()
 // Define the port.
 const port = process.env.PORT || 8080;
 
+const server = http.createServer((req,res) => {
+  // normalize url by removing querystring, optional trailing slash, and
+  // making lowercase
+  const path = req.url.replace(/\/?(?:\?.*)?$/, '').toLowerCase()
+  switch(path) {
+    case '':
+      serveStaticFile(res, '/public/hello.html', 'text/html')
+      break
+    case '/about':
+      serveStaticFile(res, '/public/about.html', 'text/html')
+      break
+    case '/img/logo.png':
+      serveStaticFile(res, '/public/img/logo.png', 'image/png')
+      break
+    default:
+      serveStaticFile(res, '/public/404.html', 'text/html', 404)
+      break
+  }
+})
+
 // Define directory where static files will be served to run in the browser.
 app.use(express.static(__dirname + '/public'))
 
