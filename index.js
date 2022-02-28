@@ -10,7 +10,7 @@ const server = http.createServer((req,res) => {
   const path = req.url.replace(/\/?(?:\?.*)?$/, '').toLowerCase()
   switch(path) {
     case '':
-      serveStaticFile(res, '/public/hello.html', 'text/html')
+      serveStaticFile(res, '/public/index.html', 'text/html')
       break
     case '/about':
       serveStaticFile(res, '/public/about.html', 'text/html')
