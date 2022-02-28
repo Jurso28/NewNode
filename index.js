@@ -41,8 +41,8 @@ const server = http.createServer((req,res) => {
     case '':
       serveStaticFile(res, '/public/index.html', 'text/html')
       break
-    case '/about':
-      serveStaticFile(res, '/public/about.html', 'text/html')
+    case '/mongo':
+      serveStaticFile(res, '/public/mongo.html', 'text/html')
       break
     case '/img/logo.png':
       serveStaticFile(res, '/public/img/logo.png', 'image/png')
@@ -84,7 +84,7 @@ app.get('/mongo/', (req, res) => {
     await updateSeatbyNumber(seat, "Seat 1", {studentName: "Timmy G", userName: "TG"});
     document.getElementById("Box1").innerHTML = studentName + userName + seat
     await updateSeatbyNumber30(seat, "Seat 30", {studentName: "Josh W", userName: "JW"});
-
+    document.getElementById("Box30").innerHTML = studentName + userName + seat
 
 })
 
