@@ -13,11 +13,11 @@ const port = process.env.PORT || 8080;
 // Define directory where static files will be served to run in the browser.
 app.use(express.static(__dirname + '/public'))
 
-app.get('/hello/', (req, res) => {
+app.use('/hello/', (req, res) => {
 	res.send('Hello World! - JU')
 })
 
-app.get('/mongo/', (req, res) => {
+app.use('/mongo/', (req, res) => {
 	res.send('MongoDB! - JU')
     doMongo()
     
