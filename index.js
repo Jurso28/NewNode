@@ -24,7 +24,7 @@ app.use('/mongo/', (req, res) => {
 
 })
 
-const logMessage = 'Application listening at http://localhost:' + port
+const logMessage = 'Application listening at http://localhost:' + port;
 app.listen(port, () => {
 	console.log(logMessage);
 	console.log('...press  Ctrl-C to terminate.\n');
